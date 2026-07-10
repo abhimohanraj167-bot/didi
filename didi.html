@@ -7,39 +7,19 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   overflow: hidden;
 }
 
-/* Slideshow */
-.slideshow {
+/* Background image */
+.bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -1;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  background: url('IMG-20250718-WA0001.jpg') no-repeat center;
   background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: slideShow 12s infinite;
-}
-
-/* SAME IMAGE multiple times for smooth effect */
-.slide:nth-child(1) { background-image: url('IMG-20250718-WA0001.jpg'); animation-delay: 0s; }
-.slide:nth-child(2) { background-image: url('IMG-20250718-WA0001.jpg'); animation-delay: 4s; }
-.slide:nth-child(3) { background-image: url('IMG-20250718-WA0001.jpg'); animation-delay: 8s; }
-
-@keyframes slideShow {
-  0% {opacity: 0;}
-  10% {opacity: 1;}
-  30% {opacity: 1;}
-  40% {opacity: 0;}
-  100% {opacity: 0;}
+  filter: blur(3px);
+  z-index: -1;
 }
 
 /* Popup */
@@ -49,11 +29,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   background: white;
-  color: black;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 25px;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(0,0,0,0.4);
   transition: 0.3s;
 }
 
@@ -65,27 +43,20 @@ button {
   padding: 10px 20px;
   margin: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
 }
 
-.yes { background: #007BFF; color: white; }
-.no { background: #ccc; }
+.yes { background: blue; color: white; }
+.no { background: grey; }
 
 </style>
 </head>
 
 <body>
 
-<!-- Slideshow -->
-<div class="slideshow">
-  <div class="slide"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
-</div>
+<div class="bg"></div>
 
-<!-- Popup -->
 <div class="popup" id="popup">
   <h2 id="text">Kaisi hai chudail 😜</h2>
   <button class="yes" onclick="nextStep()">Yes</button>
